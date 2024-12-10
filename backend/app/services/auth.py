@@ -3,11 +3,11 @@ from dataclasses import dataclass
 from settings import settings
 import jwt
 from .base import BaseCRUDService
-from database import User, UserCreate, SessionToken
+from database import User, UserCreate, SessionToken, PasswordChange
 from fastapi import HTTPException
 from sqlalchemy import select
 from fastapi.security import OAuth2PasswordRequestForm
-from utils import verify_password
+from utils import verify_password, hash_password
 
 
 
@@ -60,3 +60,13 @@ class AuthService(BaseCRUDService):
         self.session.add(user)
         await self.session.commit()
         return SessionToken(access_token=self._encode_jwt({"email": user.email}))
+
+
+    async def change_password(self, data: PasswordChange, user: User) -> dict[str, str]:
+        if verify_password(data.old_password, user.password):
+            user.password = hash_password(data.new_password)
+            self.session.add(user)
+            await self.session.commit()
+            return {"status": "Ok"}
+        raise HTTPException(400, detail="Old password does not match")
+    

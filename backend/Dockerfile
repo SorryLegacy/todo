@@ -14,7 +14,7 @@ ENV PATH="/root/.local/bin:$PATH"
 
 COPY pyproject.toml poetry.lock alembic.ini /app/
 
-RUN poetry install --no-root --no-dev
+RUN poetry install --no-root
 
 
 ENV PYTHONUNBUFFERED=1 \

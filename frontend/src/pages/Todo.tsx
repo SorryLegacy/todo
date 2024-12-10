@@ -4,7 +4,6 @@ import Header from '../laylout/Header';
 import SplitBackgroundLayout from '../laylout/SplitBackgroundLayout';
 import taskService, { Task } from '../services/task'
 import { useToast } from '../services/toast';
-import NotificationList from '../ui/notificationList';
 
 const TaskBoard: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -56,7 +55,7 @@ const TaskBoard: React.FC = () => {
     priority: 'medium',
   });
 
-  const updateTask = async (taskId: string, data: Partial<Task>) => { 
+  const updateTask = async (taskId: string, data: Partial<Task>) => {
     const originalTask = tasks.find(task => task.id == taskId)
     if (originalTask){
       const updatedTask = await taskService.updateTask(taskId, originalTask, data, showToast)
@@ -219,7 +218,7 @@ const TaskBoard: React.FC = () => {
             ))}
           </div>
         </div>
-      
+
 
       <ReactModal
         isOpen={isModalOpen || !!editTask}
