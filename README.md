@@ -21,11 +21,9 @@ Before running the application, ensure you have the following installed on your 
 ├── frontend/       # React frontend code
 │   ├── Dockerfile  # Dockerfile for the frontend
 │   ├── src/        # Source code of the frontend
-│   └── .env        # Environment variables for the frontend
 ├── backend/        # FastAPI backend code
 │   ├── Dockerfile  # Dockerfile for the backend
 │   ├── app/        # Backend application code
-│   └── .env        # Environment variables for the backend
 ├── docker-compose.yaml  # Docker Compose configuration
 ├── Makefile        # Makefile for common commands
 └── README.md       # This file
