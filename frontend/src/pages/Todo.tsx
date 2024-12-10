@@ -55,7 +55,7 @@ const TaskBoard: React.FC = () => {
     priority: 'medium',
   });
 
-  const updateTask = async (taskId: string, data: Partial<Task>) => { 
+  const updateTask = async (taskId: string, data: Partial<Task>) => {
     const originalTask = tasks.find(task => task.id == taskId)
     if (originalTask){
       const updatedTask = await taskService.updateTask(taskId, originalTask, data, showToast)
@@ -218,7 +218,7 @@ const TaskBoard: React.FC = () => {
             ))}
           </div>
         </div>
-      
+
 
       <ReactModal
         isOpen={isModalOpen || !!editTask}
