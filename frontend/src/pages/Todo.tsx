@@ -4,7 +4,6 @@ import Header from '../laylout/Header';
 import SplitBackgroundLayout from '../laylout/SplitBackgroundLayout';
 import taskService, { Task } from '../services/task'
 import { useToast } from '../services/toast';
-import NotificationList from '../ui/notificationList';
 
 const TaskBoard: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
