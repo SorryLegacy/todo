@@ -35,6 +35,10 @@ Before running the application, ensure you have the following installed on your 
 ```bash
 cp .env.example .env
 
+
+# inital front
+cd /frontend && npm install
+
 # Up witout rebuild 
 make up-all
 
